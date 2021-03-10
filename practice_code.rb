@@ -5,7 +5,7 @@ when "red"
   puts "stop!"
 when "yellow"
   puts "caution!"
-when "blue"
+when "blue", "green"  
   puts "go!"
 else 
   puts "wrong signal"
