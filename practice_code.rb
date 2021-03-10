@@ -86,4 +86,10 @@
 #   end
 # end
 
-
+#hello ruby レッスンの演習
+#私の回答
+# puts "foo" 
+# puts "bar" 
+# puts "baz"
+#模範回答
+#puts "foo\nbar\nbaz"
