@@ -93,3 +93,25 @@
 # puts "baz"
 #模範回答
 #puts "foo\nbar\nbaz"
+
+#1-100までの和
+#模範回答
+# n   = 1
+# sum = 0
+# while n < 101
+#   sum += n
+#   n += 1
+# end
+# puts(sum)
+
+# #もしくは
+
+# n   = 0
+# sum = 0
+# while n < 101
+#   if n > 0
+#     sum += n
+#   end
+#   n += 1
+# end
+# puts(sum)
