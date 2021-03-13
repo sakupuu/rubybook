@@ -192,3 +192,118 @@
 #   puts n if prime?(n)
 # end
 #解答例：まず、2より小さい数は素数でないとします。それ以上の数は、2からその数の平方根まで割り算を行って、すべての剰余が0でないことを確認します。
+
+#p.295 練習問題
+#1. 1~100までの整数が昇順に並ぶ配列aを作りなさい。（a[0]は1、a[99]は100になる）
+#私の回答
+# arrays = (1..100)
+# arrays.each do |a|
+#   puts a
+# end
+#解答例
+# a = (1..100).to_a
+
+#2. 1.の配列の各要素を全て100倍した、新しい配列a2を作りなさい。（a2[0]は100になります）また、新しい配列を作成せずに、3の倍数以外の数を削除しなさい。
+#私の回答
+# a2 = (1..100)*3.to_a
+#解答例
+#普通にArray#collectを使えば、新しい配列が作れます。同じ配列をそのまま100倍したいときは、「!」がついたArray#collect!を使います。
+# 配列を作成する
+# a = (1..100).to_a
+# 配列の全ての要素を100倍した値を含む新しい配列を作る
+# a2 = a.collect{|i| i * 100 }
+# p a2
+# 配列の全ての要素を100倍する
+# a.collect!{|i| i * 100 }
+# p a
+
+#3. 1. の配列から3の倍数だけ取り出した、新しい配列a3を作りなさい。（a3[0]は3、a3[2]は9になる）また、新しい配列を作成せずに、3の倍数以外の数を削除しなさい。
+#私の回答
+# a = (1..100).to_a
+# a3 = a.collect{|i| i * 3 }
+# p a3
+# p a.slice! ()
+# p a
+#解答例
+#条件に当てはまるものをとりのぞくには、Array#rejectを使います。
+# 配列を作成する
+# a = (1..100).to_a
+# aryから3の倍数だけを取り出す
+# a3 = a.reject{|i| i % 3 != 0 }
+# p a3
+# なお、条件に当てはまるものだけ返す、!が不要なselectというメソッドもあります
+# a4 = a.select{|i| i % 3 == 0 }
+# p a4
+# aryから3の倍数以外の数を削除する
+# a.reject!{|i| i % 3 != 0 }
+# p a
+
+#4. 1.の配列を逆順に並べ替えなさい
+#私の回答
+# a = (1..100).to_a
+# p a.sort.reverse
+#解答例
+# 配列を作成する
+# a = (1..100).to_a
+# (a) Array#reverseを使う
+# a2 = a.reverse
+# p a2
+# (b) Array#sortを使う
+# a2 = ary.sort{|n1, n2| -(n1 <=> n2) }
+# p a2
+# (c) Array#sort_byを使う
+# a2 = a.sort_by{|i| -i }
+# p a2
+
+#5. 1.の配列に含まれる整数の和を求めなさい
+#私の回答
+# a = (1..100).to_a
+# a = 0
+# n = 1
+# while n <= 100   
+#   a = a + n
+#   n = n + 1
+# end
+# puts a
+#解答例
+# 配列を作成する
+# a = (1..100).to_a
+# (a) Array#eachで和を求める
+# result = 0
+# a.each{|i| result += i }
+# p result
+# (b) Array#injectで和を求める
+# p a.inject(0){|memo, i| memo += i }
+
+#6. 1から100の整数を含む配列aryから、1〜10、 11〜20、21〜30というように10個の要素を含む配列を10個取り出します。
+#取り出した全ての配列を、順に別の配列resultに格納するとき、以下に当てはまる式を考えよ。
+#解答例
+# 配列を作成する
+# ary = (1..100).to_a
+# result = Array.new
+# 10.times do |i|
+#   result << ary[i*10, 10]
+# end
+# p result
+
+#7.  数値からなる配列nums1とnums2に対して、それらの個々の要素を足し合わせた要素からなる配列を返すメソッドsum_arrayを定義せよ。
+#解答例
+#Array#eachでary1の各要素にループさせるのと同時に、インデックスを使ってary2の各要素にアクセスするのがポイントです。また、別解として、Array#zipというメソッドを使うと、２つの配列に対して同時に各要素を参照することができます。
+# def sum_array(ary1, ary2)
+#   result = Array.new
+#   i = 0
+#   ary1.each do |elem1|
+#     result << elem1 + ary2[i]
+#     i+=1
+#   end
+#   return result
+# end
+
+# Array#zipを使った別解
+# def sum_array_zip(ary1, ary2)
+#   result = Array.new
+#   ary1.zip(ary2){|a, b| result << a + b }
+#   return result
+# end
+
+# p sum_array([1, 2, 3], [4, 6, 8])
