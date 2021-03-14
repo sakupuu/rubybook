@@ -393,3 +393,88 @@
 # p kan2num("二十三")
 # p kan2num("十三")
 # p kan2num("三")
+
+#p.340の練習問題
+#1. 曜日を表す英語と日本語との対応を表すハッシュwdayを定義せよ。
+#私の回答
+# def wday
+#   wday = {sunday: "日曜日", monday: "月曜日", tuesday: "火曜日", wednesday: "水曜日", thursday:"木曜日", fliday:"金曜日", saturday:"土曜日"}
+# end
+#解答例
+# wday = {
+#   "sunday"    => "日曜日",
+#   "monday"    => "月曜日",
+#   "tuesday"   => "火曜日",
+#   "wedensday" => "水曜日",
+#   "thursday"  => "木曜日",
+#   "friday"    => "金曜日",
+#   "saturday"  => "土曜日",
+# }
+
+# 2. ハッシュのメソッドを使って、1.のハッシュwdayのペア数を数えよ。
+#私の回答
+# counts = Hash.new
+# wday.each_line do |line|
+#   words = line.split
+#   worlds.each do |word|
+#     counts[word] += 1
+#   end
+# end
+#解答例
+#普通にHash#sizeを使えば求まります。
+wday = {
+  "sunday"    => "日曜日",
+  "monday"    => "月曜日",
+  "tuesday"   => "火曜日",
+  "wedensday" => "水曜日",
+  "thursday"  => "木曜日",
+  "friday"    => "金曜日",
+  "saturday"  => "土曜日",
+}
+
+# p wday.size  #=>7
+
+#3.eachメソッドと1.のハッシュwdayを使って、「sunday」は日曜日のことです。「monday」は月曜日のことです。と表示させよ。
+#私の答え
+# wday = {
+#   "sunday"    => "日曜日",
+#   "monday"    => "月曜日",
+#   "tuesday"   => "火曜日",
+#   "wedensday" => "水曜日",
+#   "thursday"  => "木曜日",
+#   "friday"    => "金曜日",
+#   "saturday"  => "土曜日",
+# }
+# wday.each_pair do |k,v|
+#   puts "#{k}は#{v}のことです"
+# end
+#解答例
+# wday = {
+#   "sunday"    => "日曜日",
+#   "monday"    => "月曜日",
+#   "tuesday"   => "火曜日",
+#   "wedensday" => "水曜日",
+#   "thursday"  => "木曜日",
+#   "friday"    => "金曜日",
+#   "saturday"  => "土曜日",
+# }
+#普通に配列でキーを与えてもいいのですが、簡単のため%wを使ってみます。
+# %w(sunday monday tuesday wedensday thursday friday saturday).each do |day|
+#   puts "「#{day}」は#{wday[day]}のことです。"
+# end
+
+# 4. ハッシュには、配列の%wのような物がありません。そこで、空白とタブと改行（正規表現で定義するなら「/\s+/」）で区切られた文字列をハッシュに変換するメソッドstr2hashを定義せよ。
+# 文字列をString#splitで分割したあと、Array#shiftで一つずつ取り出して、ハッシュを作っていきます。
+#解答例
+# def str2hash(str)
+#   hash = Hash.new()
+#   array = str.split(/\s+/)
+#   while key = array.shift
+#     value = array.shift
+#     hash[key] = value
+#   end
+#   return hash
+# end
+
+# p str2hash("bule 青 white 白\nred 赤");
+
