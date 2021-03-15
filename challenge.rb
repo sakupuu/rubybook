@@ -48,8 +48,19 @@
 # end
 # puts sum
 
-i = 1
-while i < 3
-  puts i
-  i += 1
-end
+# i = 1
+# while i < 3
+#   puts i
+#   i += 1
+# end
+
+# i = 1
+# until i > 5
+#   puts "まだいける"
+#   i += 1
+# end
+
+# 6.times do |i|
+#   puts "#{i+1}回目の表示です"
+# end
+
