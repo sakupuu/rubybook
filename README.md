@@ -1,2 +1,2 @@
 # rubybook
-書籍：楽しいRuby
+## 書籍：楽しいRuby
